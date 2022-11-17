@@ -1,17 +1,34 @@
 // Esta data simula la información que puede venir, por ejemplo, de una api
 // Vamos a tener que tipar tanto el array de mensajes, como los objetos que podemos encontrar dentro
 
-export const mensajes = [
+export interface Mensajes {
+    id: number
+    remitente: {
+        nombre: string
+        apellido: string
+        type: string
+        ciudadDeNacimiento: {
+            ciudad: string
+            region: string
+        }
+    }
+    email: string
+    asunto: string
+    fecha: string
+    texto: string
+}
+
+export const mensajes: Mensajes[] = [
     {
         id: 1,
         remitente: {
-          nombre: 'Misty',
-          apellido: 'Williams',
-          type: 'ENTRENADOR',
-          ciudadDeNacimiento: {
-            ciudad: 'Ciudad Celeste',
-            region: 'Kanto',
-          },
+            nombre: 'Misty',
+            apellido: 'Williams',
+            type: 'ENTRENADOR',
+            ciudadDeNacimiento: {
+                ciudad: 'Ciudad Celeste',
+                region: 'Kanto',
+            },
         },
         email: "misty@ciudadCeleste.com",
         asunto: "Entrenamiento",

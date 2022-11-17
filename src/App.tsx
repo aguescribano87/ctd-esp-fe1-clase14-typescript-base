@@ -1,14 +1,14 @@
 import { useState } from "react";
 import ListadoMensajes from "./components/ListadoMensajes";
 import VistaMensaje from "./components/VistaMensaje";
-import { mensajes } from "./data/mensajes";
+import { Mensajes, mensajes } from "./data/mensajes";
 
 import "./styles.css";
 
 export default function App() {
-    const [mensaje, setMensaje] = useState();
+    const [mensaje, setMensaje] = useState<Mensajes>();
 
-    const seleccionarMensaje = (id) =>
+    const seleccionarMensaje = (id: number) =>
         setMensaje(mensajes.find((m) => m.id === id));
 
     return (
@@ -19,7 +19,7 @@ export default function App() {
                     mensajes={mensajes}
                     seleccionarMensaje={seleccionarMensaje}
                 />
-                <VistaMensaje mensaje={mensaje} />
+                {mensaje && <VistaMensaje mensaje={mensaje} />}
             </div>
         </div>
     );
